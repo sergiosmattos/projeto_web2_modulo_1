@@ -1,0 +1,66 @@
+activity()
+	->on($botão)
+	->by($usuario)
+	->log("Botão clicado")
+	->withProperties(
+	[
+		'tipo_acao' => 'nao autorizada'
+	])
+	->tap(function(ActivityContract $activity) {
+		$log->custom_property;
+		$activity->tempeture = "18ºC".
+	};
+	
+$log = Activity::all()->last();
+$logs = Activity::where(properties->'tipo_acao', 'nao autorizada')->get();
+$log->causer;
+$log->subject;
+$log->custom_property;
+$valorpropriedade = $log->getProperty('tipo_acao');
+
+Ação {
+	Causer: Quem fez.
+	Subject: Sobre quem foi feita.
+	Temperatura: Temperatura do dia.
+}
+
+
+clear_after_days = 365
+
+log1 {
+	created_at = "01/10/2026"
+}
+
+log2 {
+	created_at = "02/10/2025"
+}
+
+clean -> limpar todos logs mais velhos que 365.
+
+"01/10/2026"
+"17/10/2026"
+6 dias
+
+"02/10/2025"
+"17/10/2026"
+366 dias
+
+Schedule::command('activitylog:clean --force')->daily();
+
+activity()
+  ->performedOn($subject) // Define o Subject do log.
+  ->causedBy($causer) // Define o Causer do log.
+  ->withProperties(['key' => 'value']) // Define propriedades customizadas.
+  ->createdAt(now()) // Define a data de criação do log.
+  ->event('evento') // Define um evento customizado do log.
+  ->tap(function(ActivityContract $activity) {}; // Define um tap.
+  ->log('Produto foi editado.'); // Define a descrição do log.
+  
+  
+$ultimoLog = Activity::all()->last();//retorna o último log registrado.
+$logs = Activity::where('properties->key', 'value')->get(); // retorna os logs com a propriedade requerida.
+
+$ultimoLog->description; //retorna a mensagem: "Mensagem do log"
+$ultimoLog->subject; //retorna o Subject.
+$ultimoLog->causer; //retorna a Causer
+$ultimoLog->getProperty('key'); //retorna o valor propriedade.
