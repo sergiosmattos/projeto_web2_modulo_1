@@ -24,11 +24,6 @@
 
                 <ul class="dropdown-menu dropdown-menu-end">
 
-                    <li>
-                        <a class="dropdown-item" href="{{ route('history') }}">
-                            <i class="fa-solid fa-clock-rotate-left me-2"></i>Histórico
-                        </a>
-                    </li>
 
                     @if (session()->get('user.permission') === 'admin')
                         <li>

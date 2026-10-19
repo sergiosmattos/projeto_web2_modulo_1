@@ -18,18 +18,11 @@ class ProdutoController extends Controller
 
         // Log manual: visualizar não altera o banco, então o log automático não pega.
         // Este log é a relação N:N "usuário visualizou produto".
-        activity('produtos')
-            ->causedBy($user)
-            ->performedOn($produto)
-            ->event('visualizado')
-            ->withProperties(['ip' => request()->ip()])
-            ->log('Visualizou o produto :subject.nome');
-
-        $totalVisualizacoes = Activity::forSubject($produto)->forEvent('visualizado')->count();
+    
 
         return view('produto-page', [
             'produto' => $produto,
-            'totalVisualizacoes' => $totalVisualizacoes,
+            
         ]);
     }
 

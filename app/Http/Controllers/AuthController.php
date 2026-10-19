@@ -98,7 +98,7 @@ class AuthController extends Controller
             ]
         ]);
 
-        return redirect()->route('home_page');
+        return redirect('/');
     
     }
 

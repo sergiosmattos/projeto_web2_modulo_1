@@ -12,8 +12,6 @@ use App\Http\Middleware\CheckIsAdmin;
 Route::middleware([CheckIsLogged::class])->group(function () {
     Route::get('/', [MainController::class, 'index'])->name('home_page');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/history', [MainController::class, 'history'])->name('history');
-
     Route::get('/produto={id}', [ProdutoController::class, 'viewProduto'])->name('view_produto');
 });
 

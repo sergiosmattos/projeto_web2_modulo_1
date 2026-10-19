@@ -20,8 +20,6 @@
                         {{ $produto->quantidade > 0 ? $produto->quantidade : 'Sem estoque' }}
                     </dd>
 
-                    <dt class="col-sm-4 text-body-secondary fw-normal">Visualizações</dt>
-                    <dd class="col-sm-8 num">{{ $totalVisualizacoes }}</dd>
 
                     <dt class="col-sm-4 text-body-secondary fw-normal">Cadastrado em</dt>
                     <dd class="col-sm-8">{{ $produto->created_at->format('d/m/Y \à\s H:i') }}</dd>
