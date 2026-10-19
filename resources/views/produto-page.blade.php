@@ -11,13 +11,13 @@
         <div class="card mt-3">
             <div class="card-body p-4">
 
-                <h1 class="h3 mb-2">{{ $produto->nome }}</h1>
-                <p class="preco mb-4">R$ {{ number_format($produto->preco, 2, ',', '.') }}</p>
+                <h1 class="h3 mb-2">{{ $produto->name }}</h1>
+                <p class="preco mb-4">R$ {{ number_format($produto->price, 2, ',', '.') }}</p>
 
                 <dl class="row mb-0">
                     <dt class="col-sm-4 text-body-secondary fw-normal">Em estoque</dt>
-                    <dd class="col-sm-8 num {{ $produto->quantidade > 0 ? '' : 'estoque-zerado' }}">
-                        {{ $produto->quantidade > 0 ? $produto->quantidade : 'Sem estoque' }}
+                    <dd class="col-sm-8 num {{ $produto->amount > 0 ? '' : 'estoque-zerado' }}">
+                        {{ $produto->amount > 0 ? $produto->amount : 'Sem estoque' }}
                     </dd>
 
                     <dt class="col-sm-4 text-body-secondary fw-normal">Cadastrado em</dt>
@@ -26,7 +26,7 @@
 
                 <hr>
 
-                <p class="mb-0">{{ $produto->descricao ?: 'Sem descrição.' }}</p>
+                <p class="mb-0">{{ $produto->description ?: 'Sem descrição.' }}</p>
 
             </div>
         </div>

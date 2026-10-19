@@ -46,15 +46,20 @@ class AuthController extends Controller
                         ->with('login_error','Email ou senha incorretos!');
             }
         }
-        
        
-            session([
+        session([
             'user' => [
                 'id' => $user->id,
                 'email' => $user->email,
                 'permission' => $user->permission,
             ]
         ]);
+
+        activity()
+            ->performedOn($user)
+            ->causedBy($user)
+            ->event("login")
+            ->log("O usuário (:subject.name) fez login!");
 
         return redirect('/');
 
@@ -100,7 +105,14 @@ class AuthController extends Controller
 
     public function logout(){
 
+        $user = User::find(session()->get("user.id"));
         session()->forget('user');
+
+        activity()
+            ->performedOn($user)
+            ->causedBy($user)
+            ->event("login")
+            ->log("O usuário (:subject.name) fez logout!");
 
        return redirect()->route('login');
     }

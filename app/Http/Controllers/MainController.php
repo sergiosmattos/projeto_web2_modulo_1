@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Produto;
 use App\Services\Operations;
+use Spatie\Activitylog\Models\Activity;
 
 class MainController extends Controller
 {
@@ -30,7 +31,9 @@ class MainController extends Controller
     }
     public function adminLogs(Request $request)
     {
-        return view('logs', ['logs' => []]);
+        $logs = Activity::all();
+
+        return view('logs', ['logs' => $logs]);
     }
 
 }

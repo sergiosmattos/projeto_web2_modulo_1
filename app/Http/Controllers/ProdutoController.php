@@ -15,6 +15,12 @@ class ProdutoController extends Controller
         $produto = Produto::findOrFail(Operations::decryptId($id));
         $user = User::findOrFail(session()->get('user.id'));
 
+        activity()
+            ->on($produto)
+            ->by($user)
+            ->event("visualized")
+            ->log("O usuário visualizou um produto!");
+
         return view('produto-page', [
             'produto' => $produto,
         ]);
@@ -50,10 +56,10 @@ class ProdutoController extends Controller
 
         $produto = new Produto();
 
-        $produto->nome = $request->produto_nome;
-        $produto->preco = $request->produto_preco;
-        $produto->descricao = $request->produto_descricao;
-        $produto->quantidade = $request->produto_quantidade;
+        $produto->name = $request->produto_nome;
+        $produto->price = $request->produto_preco;
+        $produto->description = $request->produto_descricao;
+        $produto->amount = $request->produto_quantidade;
 
         $produto->save();
 
@@ -94,10 +100,10 @@ class ProdutoController extends Controller
         ]);
 
         $produto            = Produto::withTrashed()->findOrFail(Operations::decryptId($id));
-        $produto->nome       = $request->produto_nome;
-        $produto->preco      = $request->produto_preco;
-        $produto->descricao  = $request->produto_descricao;
-        $produto->quantidade = $request->produto_quantidade;
+        $produto->name       = $request->produto_nome;
+        $produto->price      = $request->produto_preco;
+        $produto->description  = $request->produto_descricao;
+        $produto->amount = $request->produto_quantidade;
 
         $produto->save();
 

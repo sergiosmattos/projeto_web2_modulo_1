@@ -10,10 +10,10 @@ return new class extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 200);
-            $table->decimal('preco', 10, 2);
-            $table->text('descricao')->nullable();
-            $table->unsignedInteger('quantidade')->default(0);
+            $table->string('name', 200);
+            $table->decimal('price', 10, 2);
+            $table->text('description')->nullable();
+            $table->unsignedInteger('amount')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

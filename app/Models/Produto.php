@@ -5,19 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Models\Concerns\LogsActivity;
 
 class Produto extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, LogsActivity;
 
     protected $fillable = [
-        'nome',
-        'preco',
-        'descricao',
-        'quantidade',
+        'name',
+        'price',
+        'description',
+        'amount',
     ];
 
     protected $casts = [
-        'preco' => 'decimal:2',
+        'price' => 'decimal:2',
     ];
 }
